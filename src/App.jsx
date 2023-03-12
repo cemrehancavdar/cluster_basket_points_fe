@@ -6,21 +6,24 @@ function App() {
   const [points, setPoints] = useState([]);
 
   function getRandomColor(number) {
-    const colorSeed = number * 23; 
-    const hue = colorSeed % 360; 
-    const saturation = 75; 
-    const lightness = 50; 
+    const colorSeed = number * 23;
+    const hue = colorSeed % 360;
+    const saturation = 75;
+    const lightness = 50;
     console.log(`hsl(${hue}, ${saturation}%, ${lightness}%)`);
-    return `hsl(${hue}, ${saturation}%, ${lightness}%)`; 
+    return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
   }
 
   useEffect(() => {
     const fetchPoints = async () => {
-      const response = await fetch('https://cluster-basket-points.onrender.com/cluster?count=500', {
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await fetch(
+        'https://cluster-basket-points.onrender.com/cluster?count=500',
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
         },
-      });
+      );
       const data = await response.json();
       setPoints(data.features);
     };
@@ -28,7 +31,7 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <MapContainer center={[41.11, 29.02]} zoom={13} scrollWheelZoom={false}>
+      <MapContainer center={[41.11, 29.02]} zoom={13}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
