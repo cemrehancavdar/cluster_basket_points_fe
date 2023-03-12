@@ -6,12 +6,12 @@ function App() {
   const [points, setPoints] = useState([]);
 
   function getRandomColor(number) {
-    const colorSeed = number * 23; // Use a deterministic number to seed the random color generator
-    const hue = colorSeed % 360; // Use the number to determine the hue
-    const saturation = 75; // Use a fixed saturation value
-    const lightness = 50; // Use a fixed lightness value
+    const colorSeed = number * 23; 
+    const hue = colorSeed % 360; 
+    const saturation = 75; 
+    const lightness = 50; 
     console.log(`hsl(${hue}, ${saturation}%, ${lightness}%)`);
-    return `hsl(${hue}, ${saturation}%, ${lightness}%)`; // Return the color in HSL format
+    return `hsl(${hue}, ${saturation}%, ${lightness}%)`; 
   }
 
   useEffect(() => {
